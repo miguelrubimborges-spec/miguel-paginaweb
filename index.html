@@ -87,6 +87,8 @@
 
             function botaoClicado() { 
                 console.log("fui clicado");
+                let texto = botao.querySelector("span");
+                texto.textContent++;
                 // Incrementa a contagem de curtidas
                 let curtidas = parseInt(contador.textContent);
                 curtidas++;
