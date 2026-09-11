@@ -24,7 +24,8 @@
             }
             /* Regra para diminuir a imagem mantendo a proporção */
             main img {
-                max-width: 80%;
+                max-width: 300px; /* Ajuste aqui: mude para o tamanho desejado (ex: 200px, 40%, etc.) */
+                width: 100%;       /* Garante responsividade em telas menores */
                 height: auto;
             }
             /* Regra para garantir o texto centralizado na div */
@@ -85,7 +86,7 @@
             botao.addEventListener("click", botaoClicado);
 
             function botaoClicado() { 
-                console.log ("fui clicado")
+                console.log("fui clicado");
                 // Incrementa a contagem de curtidas
                 let curtidas = parseInt(contador.textContent);
                 curtidas++;
