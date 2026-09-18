@@ -70,7 +70,7 @@
         </header>
 
         <main>
-            <img src="wifi.png" alt="Imagem de wifi">
+            <img src="https://placehold.co/300x200/000000/FF9100?text=Wi-Fi" alt="Imagem de wifi">
             <div>
                 <h2>Meu primeiro post</h2>
                 <p>Por: Miguel Borges</p>
@@ -81,25 +81,26 @@
         </main>
 
         <script>
-            const botao = document.querySelectorAll("button");
-            const contador = document.querySelector("button span");
+            // querySelectorAll retorna uma lista (NodeList) de botões
+            const botoes = document.querySelectorAll("button");
 
-            botao.addEventListener("click", botaoClicado);
+            // Adiciona o ouvinte de clique para cada botão da lista
+            botoes.forEach((botao) => {
+                botao.addEventListener("click", function() {
+                    // Pega o span interno do botão que foi clicado especificamente
+                    const contador = botao.querySelector("span");
+                    
+                    // Incrementa o número de curtidas
+                    let curtidas = parseInt(contador.textContent);
+                    curtidas++;
+                    contador.textContent = curtidas;
 
-            function botaoClicado() { 
-                console.log("fui clicado");
-                let texto = botao.querySelector("span");
-                texto.textContent++;
-                // Incrementa a contagem de curtidas
-                let curtidas = parseInt(contador.textContent);
-                curtidas++;
-                contador.textContent = curtidas;
-
-                // Reinicia a animação a cada clique
-                botao.classList.remove("animar");
-                void botao.offsetWidth; // Força o recálculo de layout do navegador para reiniciar a animação
-                botao.classList.add("animar");
-            }
+                    // Reinicia a animação de pulso no botão clicado
+                    botao.classList.remove("animar");
+                    void botao.offsetWidth; // Força o recálculo de layout do navegador
+                    botao.classList.add("animar");
+                });
+            });
         </script>
     </body>
 </html>
