@@ -22,12 +22,21 @@
                 margin: 0 auto;
                 padding: 16px;
             }
+            
+            /* Estilo para separar cada postagem */
+            article {
+                border-bottom: 1px solid #333333;
+                padding-bottom: 24px;
+                margin-bottom: 24px;
+            }
+            
             /* Regra para diminuir a imagem mantendo a proporção */
             main img {
-                max-width: 300px; /* Ajuste aqui: mude para o tamanho desejado (ex: 200px, 40%, etc.) */
-                width: 100%;       /* Garante responsividade em telas menores */
+                max-width: 300px; /* Ajuste para o tamanho desejado */
+                width: 100%;       /* Garante responsividade */
                 height: auto;
             }
+            
             /* Regra para garantir o texto centralizado na div */
             main div {
                 text-align: center;
@@ -70,37 +79,45 @@
         </header>
 
         <main>
-        <article>
+            <!-- Primeiro Post -->
+            <article>
+                <img src="https://placehold.co/300x200/000000/FF9100?text=Wi-Fi" alt="Imagem de wifi">
+                <div>
+                    <h2>Meu primeiro post</h2>
+                    <p>Por: Miguel Borges</p>
+                    <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de tecnologia.</p>
+                    <button>❤️ <span>0</span></button>
+                    <button>👍 <span>0</span></button>
+                </div>
+            </article>
 
-            <img src="https://placehold.co/300x200/000000/FF9100?text=Wi-Fi" alt="Imagem de wifi">
-            <div>
-                <h2>Meu primeiro post</h2>
-                <p>Por: Miguel Borges</p>
-                <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de tecnologia.</p>
-                <button>❤️ <span>0</span></button>
-                <button>👍 <span>0</span></button>
-            </div>
-        </article>
+            <!-- Segundo Post (NOVO) -->
+            <article>
+                <img src="https://placehold.co/300x200/000000/FF9100?text=HTML5+%2B+CSS3" alt="Imagem com logo de HTML e CSS">
+                <div>
+                    <h2>Por que aprender HTML e CSS primeiro?</h2>
+                    <p>Por: Miguel Borges</p>
+                    <p>HTML e CSS são a base da Web. O HTML cuida da estrutura do conteúdo e o CSS traz o estilo visual. Aprender essa dupla é o primeiro passo para quem quer criar sites incríveis!</p>
+                    <button>❤️ <span>0</span></button>
+                    <button>👍 <span>0</span></button>
+                </div>
+            </article>
         </main>
 
         <script>
-            // querySelectorAll retorna uma lista (NodeList) de botões
+            // querySelectorAll pega TODOS os botões da página (inclusive do novo post)
             const botoes = document.querySelectorAll("button");
 
-            // Adiciona o ouvinte de clique para cada botão da lista
             botoes.forEach((botao) => {
                 botao.addEventListener("click", function() {
-                    // Pega o span interno do botão que foi clicado especificamente
                     const contador = botao.querySelector("span");
                     
-                    // Incrementa o número de curtidas
                     let curtidas = parseInt(contador.textContent);
                     curtidas++;
                     contador.textContent = curtidas;
 
-                    // Reinicia a animação de pulso no botão clicado
                     botao.classList.remove("animar");
-                    void botao.offsetWidth; // Força o recálculo de layout do navegador
+                    void botao.offsetWidth;
                     botao.classList.add("animar");
                 });
             });
